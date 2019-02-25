@@ -17,7 +17,7 @@ else
 end
 
 function EE401_GroupWork_OpeningFcn(hObject, eventdata, handles, varargin)
-[s,fs] = audioread('/samples/Counting-16-44p1-mono-15secs.wav');
+[s,fs] = audioread('./samples/Counting-16-44p1-mono-15secs.wav');
 handles.s=(s(:,1)-mean(s(:,1)))/max(abs(s(:,1)-mean(s(:,1))));
 handles.fs=fs;
 handles.N=length(handles.s);
@@ -34,13 +34,13 @@ function WF_Sample_Callback(hObject, eventdata, handles)
 audioNo=get(handles.WF_Sample,'Value');
 switch audioNo
     case 1
-        audioName='/samples/Counting-16-44p1-mono-15secs.wav';
+        audioName='./samples/Counting-16-44p1-mono-15secs.wav';
     case 2
-        audioName='/samples/WashingMachine-16-44p1-stereo-10secs.wav';
+        audioName='./samples/WashingMachine-16-44p1-stereo-10secs.wav';
     case 3
-        audioName='/samples/TrainWhistle-16-44p1-mono-9secs.wav';
+        audioName='./samples/TrainWhistle-16-44p1-mono-9secs.wav';
     case 4
-        audioName='/samples/FunkyDrums-48-stereo-25secs.mp3';
+        audioName='./samples/FunkyDrums-48-stereo-25secs.mp3';
     case 5
         [file,path]=uigetfile({'*.wav;*.mp3;*.ogg;*.flac','Audio Files';'*.*','All files'});
             if ~isequal(file,0)
